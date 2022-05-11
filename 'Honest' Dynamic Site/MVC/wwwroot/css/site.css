@@ -1,0 +1,199 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+/*   Custom       */
+
+#query {
+    float: left;
+    margin-top: 10px;
+    height: 350px;
+    width: 70%;
+    resize: none;
+}
+
+#queryBox {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#queryButton {
+    width: 150px;
+    margin-top: 10px;
+    transform: translate(0, 0);
+}
+
+#queryButtonFile {
+    width: 400px;
+    margin-top: 10px;
+    transform: translate(37.5%, 0);
+}
+
+#queryButtonUpload {
+    width: 150px;
+    margin-top: 10px;
+    transform: translate(25%, 0);
+    background-color: lightcoral;
+}
+
+#queryButtonUploadSimple {
+    transform: translate(6.5%, 0);
+    margin: 5px;
+}
+
+
+#loadButton {
+    position: fixed;
+    z-index: 100;
+    left: 50%;
+    top: 50%;
+    margin: -50px 0px 0px -50px;
+}
+
+.loading {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba( 255, 255, 255, 0.95 );
+}
+
+
+.evalResult {
+    margin: 5px;
+}
+
+.margin-5 {
+    margin: 5px;
+}
+
+#resultBoard {
+    overflow: hidden;
+    text-align: center;
+    margin-top: 5px;
+    height: 90px;
+}
+
+.resultBox {
+    width: 50%;
+    
+}
+
+.resultText {
+    width: 30%; 
+    text-align: center;
+}
+
+
+.resultsTableMinimal {
+    border: 0px solid transparent;
+    border-collapse: separate;
+    border-spacing: 50px 0;
+}
+
+
+.loading {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba( 255, 255, 255, 0.35 );
+}
+

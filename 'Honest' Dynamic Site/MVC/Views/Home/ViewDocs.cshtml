@@ -1,0 +1,64 @@
+//Glenn Findlay
+
+@model IEnumerable<Honest.Models.UserDoc>
+
+@{
+    ViewData["Title"] = "ViewDocs";
+}
+
+<h1>Upload</h1>
+
+<p>
+    <a asp-action="Create">Upload New</a> 
+</p>
+
+
+<div class="form-group">
+    <form asp-controller="Home" asp-action="FileUpload" enctype="multipart/form-data" method="post">
+
+        
+
+        <input type="file" name="file" value="" class="margin-5" onchange='this.form.submit();' />
+        <br>
+        <input type="submit" value="save" class="margin-5" />
+    </form>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               @Html.DisplayNameFor(model => model.userDocName) 
+             Document Name
+            </th>
+            <th>
+                 @Html.DisplayNameFor(model => model.userDocText) 
+             Document Text
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.userDocName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userDocText) 
+
+                    @{
+                        string s = item.userDocText;
+                        if (s.Length > 100) s = s.Substring(0, 100) + "...";
+                    }
+                    @Html.Raw(s)
+
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.userDocID">Delete</a> | 
+                <a asp-action="ScanUploadedDoc" asp-route-id="@item.userDocID">Scan</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

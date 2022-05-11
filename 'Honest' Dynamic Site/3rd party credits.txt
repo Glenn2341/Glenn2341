@@ -1,0 +1,4 @@
+Dapper was used for database access via more convenient sql commands
+Itext7 was used for reading pdfs
+Spire.doc was used for reading docx format files
+Loading icon from w3schools.com

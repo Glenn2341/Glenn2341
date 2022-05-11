@@ -1,0 +1,60 @@
+﻿//Glenn Findlay
+
+@{
+    ViewData["Title"] = "Results";
+}
+
+<h1 style="text-align: center">Results</h1>
+
+@{//string docName = "Results for document " + (string)ViewBag.evalResults[0].userDocName;
+    <p>
+        @{/*docName*/}
+    </p>
+}
+
+
+<body>
+
+
+    <div>
+
+
+
+     
+
+
+
+        
+
+            @foreach (var result in ViewBag.evalResults)
+            {
+
+            DataAccessLayer.BusinessLogic.Match evalResult = (DataAccessLayer.BusinessLogic.Match)result;
+
+                 <table class = "resultsTableMinimal">
+
+                <tr>
+              
+                <td class="resultBox"> <p style="text-align: center"> <u> @evalResult.m_userDocName</u> 
+                    <br>
+                    (characters @evalResult.m_userStart - @(evalResult.m_userStart + evalResult.m_length)) </p> 
+                    
+                   <p>  @evalResult.m_frontPadUser <mark>@evalResult.m_match</mark> @evalResult.m_backPadUser  </td> 
+
+                <td class="resultBox"> <p style="text-align: center"> <u> @evalResult.m_controlDocName</u>&nbsp by @evalResult.m_controlDocAuthor 
+                    <br>
+                    (characters @evalResult.m_controlStart - @(evalResult.m_controlStart + evalResult.m_length)) </p> 
+
+                   <p> @evalResult.m_frontPadControl <mark>@evalResult.m_match</mark> @evalResult.m_backPadControl </p> </td>
+                </tr>
+
+                </table>
+
+                <hr class="solid">
+
+            }
+            
+  
+ </div>
+
+</body>

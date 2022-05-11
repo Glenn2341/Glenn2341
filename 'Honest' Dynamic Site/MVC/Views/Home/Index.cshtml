@@ -1,0 +1,57 @@
+//Glenn Findlay
+
+@model Honest.Models.UserDoc
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Honest Plagiarism Detector</h1>
+    <p></p>
+</div>
+    
+
+<form asp-controller="Home" asp-action="Results">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group" id ="queryBox">
+        <textarea asp-for="userDocText" class="form-control" id="query" /></textarea>
+        <span asp-validation-for="userDocText" class="text-danger"></span>
+    </div>
+
+    
+
+    <div class="center">
+        <input type="submit" value="Scan Text" class="btn btn-primary" id="queryButton" onclick="QueryIn()"/>   
+    </div>
+
+
+
+   </form>
+
+
+    <Br>  <BR>
+      
+      <div class="center" id=queryButtonUploadSimple>
+           or     &nbsp
+   <form asp-controller="Home" asp-action="FileUpload" enctype="multipart/form-data" method="post">    
+        <input type="file" name="file" value="" class="" onchange='this.form.submit(); QueryIn();'>
+  </form>
+  </div>
+       
+  <div class="text-center" id="queryButtonUploadSimple">
+(Accepts .txt, .pdf, and .docx formats)
+   </div>
+
+
+
+
+<div class="loading">
+    <button class="btn btn-primary" id="loadButton">
+        <i class="fa fa-spinner fa-spin"></i> Loading
+    </button>
+</div>
+
+
