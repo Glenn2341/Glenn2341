@@ -1,4 +1,4 @@
-The purpose of the site is to determine if text entered by the user has been taken from any documents stores in the database (for demo purposes, the database consisted of Shakespeare or the Adventures of Sherlock Holmes.)
+The purpose of the site is to determine if text entered by the user has been taken from any documents stored in the database (for demo purposes, the database consisted of Shakespeare or the Adventures of Sherlock Holmes.)
 
 I created and deployed this website using .NET MVC Core, using MVC or model-view-controller site architecture. The website consists of an MVC layer that manages interacitons with the user, and a business logic layer that retrieves documents from a database server and compares them to the user-entered text.
 
