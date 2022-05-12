@@ -1,6 +1,7 @@
 
 
 Hi! My name is Glenn Findlay and I am aspiring to be a software developer. This is my portfolio of personal and academic projects. I recently obtained my computer science degree at the University of Southern Maine and am looking forward to working professionally and pursing new projects.
+www.glennfindlay.com
 
 <!--
 **Glenn2341/Glenn2341** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
