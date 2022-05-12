@@ -10,4 +10,4 @@ One important view file is views/home/results.cshtml which generates a new uniqu
 
 The website was originally hosted via Azure web services and an Azure SQL database sever. It is currently offline to avoid maintenance costs.
 
-These folders contain just files in which I wrote code. .Net project files, dlls, caches and other site files not included. 
+These folders contain just files in which I wrote code. .Net project files, .vs, caches and other site files not included. 
