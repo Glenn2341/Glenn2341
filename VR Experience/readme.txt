@@ -1,6 +1,6 @@
 The scene was created with C# in the Unity creation engine. Only code files written by me arte included. 
 
-The climbhold script determines the velocity of the player's contoller is moves them in the opposite direction.
+The climbhold script was used to make interactive ladders, it determines the velocity of the player's contoller is moves them in the opposite direction.
 The fuse scripts allow the actual interactive panel itself to work. 
 
 
