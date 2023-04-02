@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<!--
+	based on Generic by HTML5 UP
+-->
+<html>
+
+<head>
+	<title>Post - Blogueuse</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='csscustom/style.css') }}" />
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+
+				<!-- Header -->
+				<header id="header">
+					<a href="{{ url_for('home.index') }}" class="logo"><strong>Blogueuse</strong> find your niche</a>
+				</header>
+
+				<!-- Content -->
+				<section>
+					<header class="main">
+						<h1>{{ post.title }}</h1>
+					</header>
+					<span class="image main"><img
+							src="{{ url_for('static', filename='images/posts_large/' ~ post.id ~ '.jpg') }}"
+							alt="" /></span>
+					{% for block in post.content.split('\n\n') %}
+					<p>{{ block }}</p>
+					{% endfor %}
+				</section>
+
+				<!--Comments Section-->
+				<section>
+					<!-- COMMENT FORM-->
+					<header>
+						<h3>Your Thoughts?</h3>
+						<p>At Blogueuse, we value every opinion -- even yours</p>
+						<!-- be a part of the conversation -->
+					</header>
+					<section id="comment-form" class="alt">
+						<form method="post" action="{{ url_for('post.show_post', post_id=post.id) }}">
+							{{ form.hidden_tag() }}
+
+							{{ form.comment.label }} {{ form.comment() }}
+							{% if form.comment.errors %}
+							<ul>
+								{% for error in form.comment.errors %}
+								<li>{{ error }}</li>
+								{% endfor %}
+							</ul>
+							{% endif %}
+
+							{{ form.name.label(class_="field-name", style="padding-top: 10px;") }} {{ form.name(class_="field-name-box") }}
+							{% if form.name.errors %}
+							<ul>
+								{% for error in form.name.errors %}
+								<li>{{ error }}</li>
+								{% endfor %}
+							</ul>
+							{% endif %}
+							<input type="submit" value="Submit" style="margin-top: 10px;">
+						</form>
+					</section>
+
+					<!-- Comments Section -->
+					<header class="major">
+						<h2>Comments</h2>
+					</header>
+					<div class="features">
+						{% for comment in post.comments %}
+						<article>
+							<div class="content">
+								<h3>{{comment.author}}</h3>
+								<p>{{comment.content}}</p>
+							</div>
+						</article>
+						<article></article>
+						{% endfor %}
+					</div>
+				</section>
+			</div>
+		</div>
+		<!-- Sidebar -->
+		{% include 'sidebar.html' %}
+	</div>
+
+	<!-- Scripts -->
+	<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+	<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+</body>
+
+</html>

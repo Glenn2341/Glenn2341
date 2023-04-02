@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<!--
+	based on Editorial by HTML5 UP
+-->
+<html>
+
+<head>
+	<title>Home - Blogueuse</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='csscustom/style.css') }}" />
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+
+				<!-- Header  -->
+				<header id="header">
+					<a href="{{ url_for('home.index') }}" class="logo"><strong>Blogueuse</strong> find your niche</a>
+				</header>
+
+				<!-- Banner -->
+				<section id="banner">
+					<div class="content">
+						<header>
+							<h2><strong>Featured post</strong><br /></h2>
+							<h3>{{featured_post.title}}</h3>
+							<p>{{featured_post.author.name}}</p>
+						</header>
+						<p>{{featured_post.preview}}</p>
+						<ul class="actions">
+							<li><a href="{{ url_for('post.show_post', post_id=featured_post.id) }}"
+									class="button big">Read Now</a></li>
+						</ul>
+					</div>
+					<span class="image object">
+						<a><img src="{{ url_for('static', filename='images/posts_small/' ~ featured_post.id ~ '.jpg') }}" /></a>
+					</span>
+				</section>
+			
+				<!-- Top topic Section -->
+				<section>
+					<header class="major">
+						<h2>What's your Passion?</h2>
+					</header>
+					<div class="features">
+						{% for topic in topic_selection %}
+						<article class="topic-article">
+							<div class="content">
+								<h3>{{ topic }}</h3>
+								<form method="POST" action="{{ url_for('search.search') }}">
+									{{ searchform.csrf_token }}
+									<input type="hidden" name="query" value="{{ topic }}" />
+									<button type="submit" onclick="this.form.submit();">
+										<img src="{{ url_for('static', filename='images/icons/' ~ topic ~ '.jpg') }}" alt="Custom Image"/>
+									</button>
+								</form>
+							</div>
+						</article>
+						{% endfor %}
+					</div>
+				</section>
+
+				<!-- Posts Section -->
+				<section>
+					<header class="major">
+						<h2>Recent posts</h2>
+					</header>
+					<div class="posts">
+						{% for post in posts %}
+						<article>
+							<a href="{{ url_for('post.show_post', post_id=post.id) }}" class="image"><img
+									src="{{ url_for('static', filename='images/posts_small/' ~ post.id ~ '.jpg') }}"
+									alt="" /></a>
+							<header>
+								<h3>{{ post.title }}</h3>
+								<p>By {{post.author.name}}</p>
+							</header>
+							<p>{{ post.preview }}</p>
+						</article>
+						{% endfor %}
+					</div>
+				</section>
+			</div>
+		</div>
+		{% include 'sidebar.html' %}
+	</div>
+	<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+	<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+</body>
+
+</html>

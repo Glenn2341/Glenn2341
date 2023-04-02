@@ -1,0 +1,64 @@
+<script src="{{ url_for('static', filename='jscustom/scripts.js') }}"></script>
+
+<!-- Sidebar -->
+<div id="sidebar">
+    <div class="inner">
+
+    {% if request.endpoint != 'search.search' %}
+    <section id="search" class="alt">
+        <div class="search-center">
+        <form method="post" action="{{ url_for('search.search') }}">
+            {{ searchform.hidden_tag() }}
+            {{ searchform.query(placeholder="Search", id="query", required="required", oninput="toggleSearchButton()") }}
+            {{ searchform.submit(id="search-btn", style="display:none;" + "margin-top: 5px;") }}
+        </form>
+        </div>
+    </section>
+    {% endif %}
+
+        <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>Site Map</h2>
+                    <h3></h3>
+                </header>
+                <ul>
+                    <li><a href="{{ url_for('home.index') }}">Homepage</a></li>
+                    <li><a href="{{ url_for('home.mailinglist') }}">Mailing List</a></li>
+                    <li><a href="{{ url_for('home.about') }}">About us</a></li>
+                    
+                </ul>
+            </nav>
+
+        <!-- Spotlight Section -->
+            <section>
+                <header class="major">
+                    <h2>Discover {{spotlight_topic}}</h2>
+                </header>
+                <div class="mini-posts">                  
+                    {% for post in spotlight_posts %}
+                    <article>
+                        <a href="{{ url_for('post.show_post', post_id=post.id) }}" class="image">
+                            <img src="{{ url_for('static', filename='images/posts_small/' ~ post.id ~ '.jpg') }}" alt="" />
+                        </a>
+                        <p>{{post.title}}</p>
+                    </article>
+                    {% endfor %}
+                </div>
+            </section>
+
+        <!-- Feedback Section -->
+            <section>
+                <header class="major">
+                    <h2>Get in touch</h2>
+                </header>
+                <p>We love hearing from our readers and welcome your feedback, questions, and suggestions. Your input is invaluable in helping us continue to deliver content that resonates with you and addresses your interests. Whether you have a specific question for one of our writers, want to share your thoughts on a recent article, or have ideas for topics you'd like to see covered, we're eager to connect and learn from your perspective.</p>
+                <ul class="contact">
+                    <li class="icon solid fa-envelope"><a href="#">Feedback@Blogueuse.com</a></li>
+                </ul>
+            </section>         
+            <footer id="footer">
+                <p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a></p>
+            </footer>
+    </div>
+</div>
