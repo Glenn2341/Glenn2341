@@ -20,7 +20,7 @@ app.register_blueprint(home_blueprint)
 app.register_blueprint(search_blueprint)
 app.register_blueprint(post_blueprint)
 
-app.secret_key = 'your_secret_key_here'
+app.secret_key = os.getenv("BLOGUEUSE_SECRET_KEY")
 
 # Define a variable for the path to the images folder
 app.config['IMAGE_FOLDER'] = 'images'
